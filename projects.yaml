@@ -1,0 +1,6 @@
+projects:
+  stm32f4discovery:
+  - project_cubemx.yaml
+settings:
+  export_dir: 
+  - generate_project
