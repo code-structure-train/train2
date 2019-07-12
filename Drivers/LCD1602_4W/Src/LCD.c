@@ -139,6 +139,7 @@ void LCD_Clear(void)
 //############################################################################################
 void LCD_Puts(uint8_t x, uint8_t y, char* str)
 {
+  int count = 0;
   LCD_CursorSet(x, y);
   while (*str) {
     if (LCD_Opts.currentX >= _LCD_COLS) {
@@ -156,6 +157,13 @@ void LCD_Puts(uint8_t x, uint8_t y, char* str)
       LCD_Opts.currentX++;
     }
     str++;
+	count++;
+  }
+  if(count < 16){
+	while(16-count > 0){
+	  LCD_Data(0x20);
+	  count++;
+	}
   }
 }
 //############################################################################################
