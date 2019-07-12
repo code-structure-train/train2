@@ -22,8 +22,6 @@ static uint8_t led_toggle_done = 0;
 rt_thread_t led_thread     = RT_NULL;
 rt_thread_t key_rcv_thread = RT_NULL;
 
-
-
 void led_thread_entry(void* parameter)
 {
   while(1) {

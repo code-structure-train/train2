@@ -135,7 +135,7 @@ int main(void)
   
   // thread
   RTT_CREATE(led,led_thread_entry,RT_NULL,256,5,20)
-  RTT_CREATE(key,key_thread_entry,RT_NULL,256,3,20)
+  RTT_CREATE(key,key_thread_entry,RT_NULL,384,3,20)
   RTT_CREATE(key_rcv,key_receive_entry,RT_NULL,256,3,20)
   RTT_CREATE(key_send,key_send_entry,RT_NULL,256,3,20)
   
