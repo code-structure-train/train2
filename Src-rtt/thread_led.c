@@ -29,7 +29,7 @@ void led_thread_entry(void* parameter)
       HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15);
       led_toggle_done = 1;
     }
-    if(key_val==0) {
+    if(key_val!=1) {
       led_toggle_done = 0;
     }
     rt_thread_delay(10);
