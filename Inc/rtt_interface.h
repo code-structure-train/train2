@@ -1,7 +1,7 @@
 #ifndef __RTT_INTERFACE_H
 #define __RTT_INTERFACE_H
 
-extern rt_mq_t     key_mq;
+extern rt_sem_t    key_sem;
 
 extern rt_thread_t key_thread;
 extern rt_thread_t led_thread;

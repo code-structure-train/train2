@@ -130,14 +130,12 @@ int main(void)
   LCD_Init(); 
   LCD_Puts(0,0,"Hello World");
   
-  // message queue
-  RTT_MQ_CREATE(key,40,20,RT_IPC_FLAG_FIFO)
+  // semaphore
+  RTT_SEM_CREATE(key,0,RT_IPC_FLAG_FIFO)
   
   // thread
   RTT_CREATE(led,led_thread_entry,RT_NULL,256,5,20)
   RTT_CREATE(key,key_thread_entry,RT_NULL,512,3,20)
-  RTT_CREATE(key_rcv,key_receive_entry,RT_NULL,256,3,20)
-  RTT_CREATE(key_send,key_send_entry,RT_NULL,256,3,20)
   
   /* USER CODE END 2 */
 
