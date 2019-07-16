@@ -1,6 +1,6 @@
 #include <entry.h>
 #include "stm32f4xx_hal.h"
-#include "LCD.h"
+//#include "LCD.h"
 
 #define CHK_VAL(VAL,MIN,MAX) ((VAL>MIN && VAL<MAX) ? 1 : 0)
 
@@ -25,35 +25,35 @@ static uint8_t disp     = 0;
 void key_thread_entry(void* parameter)
 {
   uint32_t adc_value = 0;
-  char buf[40];
-  char adc[40];
+//  char buf[40];
+//  char adc[40];
   while(1) {
     HAL_ADC_Start(&hadc1);
     HAL_ADC_PollForConversion(&hadc1, 100);
     adc_value = HAL_ADC_GetValue(&hadc1);
 
     if(adc_value < 300) {
-      sprintf(buf, "right");
+//      sprintf(buf, "right");
       key_val = 1;
     }
     if(CHK_VAL(adc_value,600,1100)) {
-      sprintf(buf, "up");
+//      sprintf(buf, "up");
       key_val = 2;
     }
     if(CHK_VAL(adc_value,1250,1550)) {
-      sprintf(buf, "down");
+//      sprintf(buf, "down");
       key_val = 3;
     }
     if(CHK_VAL(adc_value,1850,2150)) {
-      sprintf(buf, "left");
+//      sprintf(buf, "left");
       key_val = 4;
     }
     if(CHK_VAL(adc_value,2350,2650)) {
-      sprintf(buf, "select");
+//      sprintf(buf, "select");
       key_val = 5;
     }
     if(CHK_VAL(adc_value,2800,3100)) {
-      sprintf(buf, "none");
+//      sprintf(buf, "none");
       key_val = 0;
     }
 
@@ -73,12 +73,12 @@ void key_thread_entry(void* parameter)
       }
     }
     
-    sprintf(adc, "adc: %d", adc_value);
-    LCD_Puts(0,0,buf);
+//    sprintf(adc, "adc: %d", adc_value);
+//    LCD_Puts(0,0,buf);
     
     static uint32_t count = 0;
     if(count > 500 || disp == 1){
-      LCD_Puts(0,1,adc);
+//      LCD_Puts(0,1,adc);
       count = 0;
       disp  = 0;
     }

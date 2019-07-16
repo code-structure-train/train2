@@ -7,6 +7,7 @@ common:
   - Drivers/CMSIS/Device/ST/STM32F4xx
   - Drivers/CMSIS/Device/ST/STM32F4xx/Include
   - Drivers/CMSIS/Include
+  - Drivers/DHT11/Inc
   - Drivers/LCD1602_4W/Inc
   - Drivers/STM32F4xx_HAL_Driver
   - Drivers/STM32F4xx_HAL_Driver/Inc
@@ -34,6 +35,7 @@ common:
   - Middlewares/Third_Party/FatFs/src
   sources:
     Drivers:
+    - Drivers/DHT11/Src/dht11.c
     - Drivers/LCD1602_4W/Src/LCD-rtt.c
     - Drivers/STM32F4xx_HAL_Driver/Src
     RTThread:
