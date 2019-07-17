@@ -1,20 +1,24 @@
 #include <entry.h>
 #include "stm32f4xx_hal.h"
-#include "dht11.h"
+#include "LCD.h"
+#include "bh1750.h"
 
 extern rt_sem_t sensor_sem;
 
-rt_thread_t dht11_thread = RT_NULL;
+float light_lx;
 
-DHT11_Dev dht11;
+rt_thread_t bh1750_thread = RT_NULL;
 
-void dht11_thread_entry(void* parameter)
+void bh1750_thread_entry(void* parameter)
 {
   rt_err_t uwRet = RT_EOK;
-  while(1) {  
+  float BH1750_lx;
+  while(1) {
     rt_sem_take(sensor_sem, RT_WAITING_FOREVER);  
     
-    DHT11_Read(&dht11);
+    if(BH1750_OK == BH1750_ReadLight(&BH1750_lx)) {
+      light_lx = BH1750_lx;
+    }
     rt_thread_delay(10);
     
     uwRet =  rt_sem_release(sensor_sem);
