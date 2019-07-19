@@ -12,11 +12,11 @@ extern rt_thread_t lcd_thread;
 uint8_t current_mode = 0;
 
 /* key_val = 0, none   key pressed
-* key_val = 1, right  key pressed
-* key_val = 2, up     key pressed
-* key_val = 3, down   key pressed
-* key_val = 4, left   key pressed
-* key_val = 5, select key pressed
+ * key_val = 1, right  key pressed
+ * key_val = 2, up     key pressed
+ * key_val = 3, down   key pressed
+ * key_val = 4, left   key pressed
+ * key_val = 5, select key pressed
 */
 uint8_t mode_switch_done = 0;
 
