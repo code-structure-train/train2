@@ -146,14 +146,17 @@ int main(void)
     
   // semaphore
   RTT_SEM_CREATE(key,0,RT_IPC_FLAG_FIFO)
+  RTT_SEM_CREATE(mode,0,RT_IPC_FLAG_FIFO)
   RTT_SEM_CREATE(sensor,1,RT_IPC_FLAG_FIFO)
   
   // thread
-  RTT_CREATE(led,led_thread_entry,RT_NULL,256,5,20)
-  RTT_CREATE(key,key_thread_entry,RT_NULL,512,3,20)
-  RTT_CREATE(lcd,lcd_thread_entry,RT_NULL,512,3,20)
+  RTT_CREATE(manual_mode,manual_mode_thread_entry,RT_NULL,256,5,20)
+  RTT_CREATE(auto_mode,auto_mode_thread_entry,RT_NULL,512,5,20)
+  RTT_CREATE(key,key_thread_entry,RT_NULL,512,2,20)
+  RTT_CREATE(lcd,lcd_thread_entry,RT_NULL,512,0,20)
   RTT_CREATE(dht11,dht11_thread_entry,RT_NULL,512,1,20)
   RTT_CREATE(bh1750,bh1750_thread_entry,RT_NULL,512,1,20)
+  RTT_CREATE(mode,mode_thread_entry,RT_NULL,512,2,20)
   /* USER CODE END 2 */
 
   /* Infinite loop */
